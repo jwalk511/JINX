@@ -1,0 +1,60 @@
+<!-- Caitlin caitlinkennedy16@gmail.com -->
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Flot Examples: Real-time updates</title>
+    <link href="../assets/css/exampleflot.css" rel="stylesheet" type="text/css">
+    <link href="../assets/css/terminal.css" rel="stylesheet" type="text/css">
+    <link href="../assets/css/combined.css" rel="stylesheet" type="text/css">
+
+    <script src="../assets/javascript/jquery-2.1.4.js"></script>
+
+    <script src="../assets/javascript/terminalScript.js"></script>
+    <script src="../assets/javascript/talker.js"></script>
+
+    <script src="../assets/javascript/flot-flot-958e5fd/jquery.flot.js"></script>
+    <script src="../assets/javascript/flot-flot-958e5fd/jquery.flot.time.js"></script>
+    <script src="../assets/javascript/grapher.js"></script>
+
+    <script type="text/javascript">
+      $(document).ready(function prepareGraph() {
+          var numPlotsCreated = 0;
+                        
+          //Should only be triggered once, the first time graphable data is found
+          $("body").one("NewData", function() {
+              numPlotsCreated += 1;
+              newPlot(1);
+          });
+
+          //Create a new plot when button is clicked
+          $('#addPlot').click(function() {
+              numPlotsCreated += 1;
+              newPlot(numPlotsCreated);
+          });
+      });
+</script>
+</head>
+
+<body>
+  <p>Hello</p>
+  <div id = "terminalWrap">
+    <div id = "terminal">
+    </div>
+    <p></p>
+    <p>Max Y Axis: <input id="commandLine" type="text" value="" style="text-align: left; width:100%;" placeholder = "Your command">
+    <button type="button" id = "terminalButton">Submit</button>
+    </p>
+    <button type="button" id = "freezeButton">FREEZE</button>
+  </div>
+
+  <div id="header">
+    <h2>Real-time updates</h2>
+  </div>
+
+  <div id="content">
+    <button type="button" id = "addPlot">Add Plot</button>
+    <div class="demo-container" id = "demo-container">
+    </div>
+  </div>
+</body>
+</html>

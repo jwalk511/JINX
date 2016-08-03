@@ -1,0 +1,31 @@
+@CHARSET "UTF-8";
+body {
+	height: 100%;
+}
+
+#terminalWrap {
+	width: 25%;
+}
+
+#terminal {
+	float: left;
+	position: relative;
+	width: 100%;
+	height: 250px;
+	margin: 5;
+	background-color: white;
+	text-color: black;
+	word-wrap: break-word;
+	border: 2px solid black;
+	border-radius: 8px;
+	overflow: auto;
+}
+
+.robo {
+	background-color: #abcfff;
+}
+
+.command {
+	background-color: silver;
+	border: 1px solid black;
+}
